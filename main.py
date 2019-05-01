@@ -1,35 +1,25 @@
 from mido import Message, MidiFile, MidiTrack, MetaMessage
-from markov import MarkovChain, noteMatrix, durationMatrix, note_duration
-
+from markov import MarkovChain, noteMatrix, durationMatrix 
+from transition_matrix import note_duration
 import random
 
+maj_scale = [0, 2, 4, 5, 7, 9, -1]
 mid = MidiFile()
 track = MidiTrack()
 mid.tracks.append(track)
 
-class Note:
-        def __init__(self, note_value):
-                self.note_value = note_value
-                self.neighbours = []
-
-        def next(self):
-                return random.choice(self.neighbours)
-
-listofnotes = [Note(60),Note(62),Note(64),Note(65),Note(67),Note(69),Note(71),Note(72)]
-
-def linkNotes():
-        for note in listofnotes:
-                for othernote in listofnotes:
-                        if othernote is not note:
-                                note.neighbours.append(othernote)
-
-track.append(Message('program_change', program=12, time=0))
-mkv = MarkovChain(noteMatrix(),list(range(12)), 0)
-durmkv = MarkovChain(durationMatrix(),note_duration, 3)
+track.append(Message('program_change', program=0, time=0))
+mkv = MarkovChain(noteMatrix(),maj_scale, 0)
+durmkv = MarkovChain(durationMatrix(),note_duration, 2)
 #track.append(MetaMessage('set_tempo', tempo=60000, time=0))
-for i in range(20):
+counter = 0
+tonic_hit = False
+while counter < 25 or not tonic_hit:
     track.append(Message('note_on', note=60 + mkv.get_state(), velocity=64, time=0))
     track.append(Message('note_off', note=60 + mkv.get_state(), velocity=32, time=int(durmkv.get_state() * 480 * 4)))
+    if counter > 25 and mkv.get_state() == 0:
+        tonic_hit = True
+    counter += 1
     mkv.next_state()
     durmkv.next_state()
 

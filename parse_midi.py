@@ -29,6 +29,7 @@ def parse_midi():
             for msg in track:
                 if msg.type == 'key_signature':
                     key_sig = msg.key
+                    print(msg.key)
                 if msg.type == 'note_on':
                     #print("Note: " + str(relative_note(msg, key_sig)) + "Beat ln: " + str(quantize(msg, mid.ticks_per_beat)))
                    notes.append((relative_note(msg, key_sig), quantize(msg, mid.ticks_per_beat)))
