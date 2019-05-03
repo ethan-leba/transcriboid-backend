@@ -1,5 +1,5 @@
 from mido import Message, MidiFile, MidiTrack, MetaMessage
-from markov import MarkovChain, noteMatrix, durationMatrix, tdNoteMatrix, TDMarkovChain
+from markov import MarkovChain, noteMatrix, durationMatrix, tdNoteMatrix, NDMarkovChain
 import random, constants
 
 mid = MidiFile()
@@ -7,9 +7,8 @@ track = MidiTrack()
 mid.tracks.append(track)
 
 track.append(Message('program_change', program=0, time=0))
-mkv = TDMarkovChain(tdNoteMatrix(),constants.maj_scale, 2, 0)
+mkv = NDMarkovChain(tdNoteMatrix(),constants.maj_scale, [4, 2, 0])
 durmkv = MarkovChain(durationMatrix(),constants.note_duration, 2)
-track.append(MetaMessage('set_tempo', tempo=200, time=0))
 
 counter = 0
 tonic_hit = False

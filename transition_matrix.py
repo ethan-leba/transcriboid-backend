@@ -1,7 +1,4 @@
 import constants
-# create the empty matrix
-# 0 - 11 is note value, multiples of 12 for duration from small to big
-
 # Generates a matrix filled with zeroes with the given dimensions and size
 # Int, Int -> Matrix
 def genNDMatrix(size, dimension):
@@ -11,7 +8,8 @@ def genNDMatrix(size, dimension):
    else:
        return [genNDMatrix(size, dimension - 1) for x in range(size)]
 
-# [(Int, Float)] -> Matrix
+# Populates a transition matrix with the given size and dimensions 
+# [Int] Int Int -> Matrix
 def populateMatrix(info_array, size, dimensions):
         mat = genNDMatrix(size,dimensions)
         for idx in range(len(info_array) - dimensions + 1):
@@ -22,5 +20,7 @@ def populateMatrix(info_array, size, dimensions):
         print(mat)
         return mat
 
+# Converts a list of numbers into indexes for creating a transition matrix
+# [Number] [Int] -> [Int]
 def prepList(arr, array_dict):
     return list(map(lambda x : array_dict.index(x), filter(lambda x : x in array_dict, arr)))

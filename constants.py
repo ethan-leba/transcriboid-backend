@@ -4,7 +4,6 @@ midi_path = 'markov_src'
 # Preset
 maj_scale = [0, 2, 4, 5, 7, 9, -1]
 
-
 key2offset = {
         'A' : 0,
         'A#' : 1,
@@ -19,15 +18,5 @@ key2offset = {
         'G' : 10,
         'G#' : 11}
 
-quantize_grid = [0.125, 0.25, 0.5, 1.0]
-
-
 note_duration = [0.125,0.25,0.5,1]
-note_dict = {
-        0.125 : 0,
-        0.25 : 1,
-        0.5 : 2,
-        1 : 3
-        }
-maj_scale_dict = {0, 2, 4, 5, 7, 9, 11}
 maj_scale_list = [0, 2, 4, 5, 7, 9, 11]
