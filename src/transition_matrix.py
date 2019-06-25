@@ -1,4 +1,6 @@
-import constants
+from . import constants
+
+# Converts an abritrarily nested array so that every 1D array sums to one.
 # [N-D Matrix] -> [N-D Matrix]
 def nd_convert_to_probabilities(mat):
     if isinstance(mat[0], list):
@@ -7,9 +9,9 @@ def nd_convert_to_probabilities(mat):
         if sum(mat) != 0:
              return list(map(lambda x : x / sum(mat), mat))
         else:
-             return mat 
+             return mat
 
-# Generates a matrix filled with zeroes with the given dimensions and size
+# Generates a matrix filled with zeroes with the given dimensions and size.
 # Int, Int -> Matrix
 def gen_nd_matrix(size, dimension):
    assert dimension > 0
@@ -18,7 +20,7 @@ def gen_nd_matrix(size, dimension):
    else:
        return [gen_nd_matrix(size, dimension - 1) for x in range(size)]
 
-# Populates a transition matrix with the given size and dimensions 
+# Populates a transition matrix with the given size and dimensions.
 # [Int] Int Int -> Matrix
 def populate_matrix(info_array, size, dimensions):
         mat = gen_nd_matrix(size,dimensions)
@@ -30,7 +32,7 @@ def populate_matrix(info_array, size, dimensions):
         print(mat)
         return mat
 
-# Converts a list of numbers into indexes for creating a transition matrix
-# [Number] [Int] -> [Int]
+# Converts a list of numbers into indexes for creating a transition matrix.
+# [X] [X] -> [Int]
 def prep_list(arr, array_dict):
     return list(map(lambda x : array_dict.index(x), filter(lambda x : x in array_dict, arr)))

@@ -12,7 +12,8 @@ def note_matrix():
     return nd_convert_to_probabilities(populate_matrix(parse_midi(), 7, 2))
 
 def tdNote_matrix():
-    return nd_convert_to_probabilities(populate_matrix(prep_list(map(lambda x : x[0], parse_midi()), constants.maj_scale_list), 7, 4))
+    return nd_convert_to_probabilities(
+    populate_matrix(prep_list(map(lambda x : x[0], parse_midi()), constants.maj_scale_list), 7, 4))
 
 def duration_matrix():
     return nd_convert_to_probabilities(populate_matrix(prep_list(map(lambda x : x[1], parse_midi()), constants.note_duration), 4, 2))

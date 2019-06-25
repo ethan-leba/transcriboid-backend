@@ -1,10 +1,12 @@
 from mido import MidiFile
-import glob, constants
+import glob
+from . import constants
 
 files = glob.glob(constants.midi_path + '/*.mid')
-midis = list(map(lambda x : MidiFile(x), files)) 
+midis = list(map(lambda x : MidiFile(x), files))
 
-# Collects all the data from the midi files
+# Convert the data from the midi files into a tuple containing information
+# about the note pitch and duration.
 # IO -> [(Int, Int)]
 def parse_midi():
     notes = []
