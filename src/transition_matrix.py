@@ -12,6 +12,7 @@ def nd_convert_to_probabilities(mat):
         else:
             return mat
 
+
 # Generates a matrix filled with zeroes with the given dimensions and size.
 # Int, Int -> Matrix
 
@@ -22,6 +23,7 @@ def gen_nd_matrix(size, dimension):
         return [0 for x in range(size)]
     else:
         return [gen_nd_matrix(size, dimension - 1) for x in range(size)]
+
 
 # Populates a transition matrix with the given size and dimensions.
 # [Int] Int Int -> Matrix
@@ -36,6 +38,7 @@ def populate_matrix(info_array, size, dimensions):
         cursor[info_array[idx + dimensions - 1]] += 1
     print(mat)
     return mat
+
 
 # Converts a list of numbers into indexes for creating a transition matrix.
 # [X] [X] -> [Int]

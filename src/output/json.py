@@ -7,7 +7,7 @@ import json
 def generate_json(mkv):
     data = {
         "bpm": 120,
-        "key_offset": 0,
+        "key_offset": 40,
         "notes": []
     }
 
@@ -26,5 +26,5 @@ def generate_json(mkv):
         counter += 1
         mkv.next_state()
 
-    with open(constants.save_midi_path + 'new_song.json', 'w') as json_file:
-        json.dump(data, json_file)
+    #with open(constants.save_midi_path + 'new_song.json', 'w') as json_file:
+    return json.dumps(data)

@@ -35,8 +35,15 @@ class TestTransitionMatrix(unittest.TestCase):
             [[[0, 0], [0, 0]], [[0, 0], [0, 0]]])
 
     def test_populate_matrix(self):
-        # TODO: do these tests
-        print("filler")
+        self.assertEqual(
+            transition_matrix.populate_matrix([0, 1, 2], 3, 2),
+            [[0, 1, 0],
+             [0, 0, 1],
+             [0, 0, 0]])
+        self.assertEqual(
+            transition_matrix.populate_matrix([0, 1, 1, 1, 0], 2, 3),
+            [[[0, 0], [0, 1]], [[0, 0], [1, 1]]]
+        )
 
     def test_prep_list(self):
         dict = ["A", "B", "C", "D"]

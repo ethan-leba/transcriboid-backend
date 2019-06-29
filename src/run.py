@@ -4,9 +4,8 @@ from .output.midi import generate_midi
 from .output.json import generate_json
 
 
-def main():
-    generate_json(load())
+# TODO: Deterministic bro.
 
 
-if __name__ == "__main__":
-    main()
+def mainm():
+    return generate_json(load())
