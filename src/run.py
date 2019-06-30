@@ -9,3 +9,6 @@ from .output.json import generate_json
 
 def mainm():
     return generate_json(load())
+
+if __name__ == "__main__":
+    mainm()

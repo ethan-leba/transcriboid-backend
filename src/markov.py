@@ -1,7 +1,6 @@
 from collections import deque
 
 from .util import weighted_random, matrix_depth
-
 # TODO: Refactor/ Remove
 # Markov chain class with 2d transition matrix
 

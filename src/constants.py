@@ -31,11 +31,19 @@ key2offset = {
         'G': 10,
         'G#': 11}
 
+# Converts the semitones into scale degrees
+semitone2scale = {
+    0: 1,
+    2: 2,
+    4: 3,
+    5: 4,
+    7: 5,
+    9: 6,
+    11: 7
+}
+
 # The list of possible note durations in units of whole notes.
 note_duration = [0.125, 0.25, 0.5, 1]
 
 # The major scale again? TODO: what's the difference...
 maj_scale_list = [0, 2, 4, 5, 7, 9, 11]
-
-# TODO: should this be here?
-combo = cartesian_product(maj_scale_list, note_duration)

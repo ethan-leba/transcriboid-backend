@@ -40,6 +40,15 @@ def populate_matrix(info_array, size, dimensions):
     return mat
 
 
+# Picks a random entry point for the matrix to initialize
+# [Int] Int -> [Int]
+def entry_point(info_array, dimensions):
+    lst = []
+    for idx in range(len(info_array) - dimensions + 1):
+        lst.append([info_array[i] for i in range(idx, dimensions + idx)])
+    return lst
+
+
 # Converts a list of numbers into indexes for creating a transition matrix.
 # [X] [X] -> [Int]
 
