@@ -1,26 +1,9 @@
 from collections import deque
 
 from .util import weighted_random, matrix_depth
-# TODO: Refactor/ Remove
-# Markov chain class with 2d transition matrix
 
-
-class MarkovChain:
-    def __init__(self, transition_matrix, states, init_state):
-        self.transition_matrix = transition_matrix
-        self.states = states
-        self.current_state = init_state
-
-    def next_state(self):
-        self.current_state = weighted_random(
-            self.transition_matrix[self.current_state])
-
-    def get_state(self):
-        return self.states[self.current_state]
 
 # Markov chain class with an abritrarily sized transition matrix
-
-
 class NDMarkovChain:
     """
     transition_matrix : An n-d array, with each dimension representing the

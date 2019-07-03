@@ -21,7 +21,9 @@ def generate_json(mkv):
             "relative_value": note,
             "duration": mkv.get_state()[1]
         })
-        if counter > constants.minimum_duration and mkv.get_state()[0] == 0:
+        if counter > constants.minimum_duration and mkv.get_state()[0] == 1:
+            tonic_hit = True
+        if counter > 100:
             tonic_hit = True
         counter += 1
         mkv.next_state()
