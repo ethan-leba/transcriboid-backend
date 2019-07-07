@@ -8,7 +8,7 @@ import random
 
 # The cartesian product of the two octaves and the possible note durations.
 scalecombo = cartesian_product(
-    [i for i in range(-8, 9)],
+    [i for i in range(-7, 8)],
     constants.note_duration)
 
 
@@ -37,6 +37,8 @@ def save(mkv):
 def load():
     return pickle.load(open(constants.matrix_path, "rb"))
 
-
-if __name__ == "__main__":
+def main():
+    print("Markov chain has been updated at " + constants.save_matrix_path)
     save(mark)
+
+main()

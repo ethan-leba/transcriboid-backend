@@ -6,8 +6,6 @@ import json
 
 def generate_json(mkv):
     data = {
-        "bpm": 120,
-        "key_offset": 40,
         "notes": []
     }
 

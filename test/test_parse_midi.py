@@ -21,13 +21,14 @@ class TestParseMidi(unittest.TestCase):
     def test_transpose(self):
         self.assertEqual(parse_midi.transpose(-13), -1)
         self.assertEqual(parse_midi.transpose(240), 12)
+        self.assertEqual(parse_midi.transpose(-240), -12)
         self.assertEqual(parse_midi.transpose(23), 11)
         self.assertEqual(parse_midi.transpose(-3), -3)
 
     def test_scale_degree(self):
-        self.assertEqual(parse_midi.scale_degree(72, "C"), 1)
-        self.assertEqual(parse_midi.scale_degree(74, "C"), 2)
-        self.assertEqual(parse_midi.scale_degree(71, "C"), -7)
-        self.assertEqual(parse_midi.scale_degree(85, "A"), 3)
-        self.assertEqual(parse_midi.scale_degree(61, "A"), -3)
-        self.assertEqual(parse_midi.scale_degree(93, "E"), 4)
+        self.assertEqual(parse_midi.scale_degree(72, "C"), 0)
+        self.assertEqual(parse_midi.scale_degree(74, "C"), 1)
+        self.assertEqual(parse_midi.scale_degree(71, "C"), -1)
+        self.assertEqual(parse_midi.scale_degree(85, "A"), 2)
+        self.assertEqual(parse_midi.scale_degree(61, "A"), -5)
+        self.assertEqual(parse_midi.scale_degree(93, "E"), 3)
