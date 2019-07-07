@@ -40,11 +40,7 @@ def valid_note(note, key_sig):
 # converts the note from absolute pitch to relative scale degree (+/- 1 octave)
 # Int, Int -> Int
 def scale_degree(note, key_sig):
-    note = divmod(transpose(relative_note(note, key_sig) - 72), 12)
-    if note[0] == 0:
-        return constants.semitone2scale[note[1]]
-    else:
-        return constants.semitone2scale[note[1]] * note[0]
+    return constants.semitone2scale[transpose(relative_note(note, key_sig) - 72)]
 
 
 # transposes a note until it is between an octave below and and octave up (-12 to 12)
@@ -54,7 +50,7 @@ def transpose(note):
         return note
     elif (note < -12):
         return transpose(note + 12)
-    elif(note > 12):
+    elif (note > 12):
         return transpose(note - 12)
 
 

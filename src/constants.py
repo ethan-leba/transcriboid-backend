@@ -1,7 +1,6 @@
-from .util import cartesian_product
 # User change
 # The minimum amount of notes that a song can have.
-minimum_duration = 25
+minimum_duration = 10 
 # -- File paths relative to the parent directory --
 # The directory containing the midi files to be converted into a markov chain.
 midi_path = './markov_src'
@@ -13,9 +12,6 @@ matrix_path = './markov_src/save.p'
 save_matrix_path = './markov_src/'
 
 # Preset
-# The notes of the major scale represented by semi-tones away from the tonic.
-maj_scale = [0, 2, 4, 5, 7, 9, -1]
-
 # Converts the key into semi-tones above A.
 key2offset = {
         'A': 0,
@@ -31,15 +27,24 @@ key2offset = {
         'G': 10,
         'G#': 11}
 
+# NOTE : Hard coded for negatives...
 # Converts the semitones into scale degrees
 semitone2scale = {
-    0: 1,
-    2: 2,
-    4: 3,
-    5: 4,
-    7: 5,
-    9: 6,
-    11: 7
+    (-12): -7,
+    (-10): -6,
+    (-8): -5,
+    (-7): -4,
+    (-5): -3,
+    (-3): -2,
+    (-1): -1,
+    0: 0,
+    2: 1,
+    4: 2,
+    5: 3,
+    7: 4,
+    9: 5,
+    11: 6,
+    12: 7
 }
 
 # The list of possible note durations in units of whole notes.
