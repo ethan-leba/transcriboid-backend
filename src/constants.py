@@ -1,6 +1,6 @@
 # User change
 # The minimum amount of notes that a song can have.
-minimum_duration = 25
+minimum_duration = 10 
 # -- File paths relative to the parent directory --
 # The directory containing the midi files to be converted into a markov chain.
 midi_path = './markov_src'

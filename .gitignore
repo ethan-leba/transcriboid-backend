@@ -131,6 +131,7 @@ dmypy.json
 
 # Personal
 
+markov_output/
 markov_src/
 junk/
 usable/

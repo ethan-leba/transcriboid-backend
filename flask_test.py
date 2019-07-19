@@ -4,9 +4,10 @@ sys.path.append('./')
 
 from src.constants import minimum_duration
 from src.filemanager import load
+from src.compare.run import generate_comparison_json
 from src.output.json import generate_json
 from flask import Flask, g
-from flask import json
+from flask import json, request
 from flask_cors import CORS
 
 
@@ -26,10 +27,17 @@ def get_mkv():
 @app.route('/song')
 def song():
     #return major_scale(.125)
-    # haosofseofewf
-    # cors lite
     return generate_json(load()) # jsonify(mainm())]})
 
+@app.route('/submit', methods=['POST'])
+def get_comparison():
+    req_data = request.get_json()
+
+    # print("get comparison reached!")
+    return json.dumps({
+    "corrected": generate_comparison_json(req_data['user'],req_data['actual']),
+    "actual": req_data['actual']
+    })
 
 if __name__ == '__main__':
     app.run()
