@@ -24,12 +24,12 @@ def get_mkv():
     return g.mkv
 
 
-@app.route('/song')
+@app.route('/api/get')
 def song():
     #return major_scale(.125)
     return generate_json(load()) # jsonify(mainm())]})
 
-@app.route('/submit', methods=['POST'])
+@app.route('/api/compare', methods=['POST'])
 def get_comparison():
     req_data = request.get_json()
 
