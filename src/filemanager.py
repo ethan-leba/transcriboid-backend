@@ -1,5 +1,5 @@
 import pickle
-
+from . import constants
 
 # Saves the markov chain object
 def save(mkv):
