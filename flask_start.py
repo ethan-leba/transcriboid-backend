@@ -11,7 +11,7 @@ from flask import json, request, send_from_directory
 from flask_cors import CORS
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 CORS(app)
 
 
@@ -34,7 +34,9 @@ def get_comparison():
     "actual": req_data['actual']
     })
 
-#@app.route('/resources/')
+@app.route('/resources/<path:path>')
+def send_resources(path):
+    return send_from_directory('resources', path)
 
 if __name__ == '__main__':
     app.run()
