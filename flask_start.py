@@ -36,8 +36,8 @@ class SubmitSong(Resource):
         "actual": req_data['actual']
         })
 
-api.add_resource(GenerateSong, '/api/get')
-api.add_resource(SubmitSong, '/api/compare')
+api.add_resource(GenerateSong, '/get')
+api.add_resource(SubmitSong, '/compare')
 
 if __name__ == '__main__':
     app.run()
