@@ -44,4 +44,4 @@ Add additional notes about how to deploy this on a live system
 
 This project is licensed under the MIT License - see the [LICENSE.md](docs/LICENSE.md) file for details
 
-**Billie Thompson**
+**Ethan Leba**
