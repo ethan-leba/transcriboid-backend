@@ -24,13 +24,11 @@ Takes in a users melodies, and compares it with the actual melody. Returns the u
   "user": [
     { "relative_value": -3, "duration": 0.25 },
     { "relative_value": -2, "duration": 0.5 },
-    ...,
     { "relative_value": 0, "duration": 0.25 }
   ],
   "actual": [
     { "relative_value": -1, "duration": 0.25 },
     { "relative_value": -2, "duration": 0.5 },
-    ...,
     { "relative_value": 0, "duration": 0.25 }
   ]
 }
@@ -47,15 +45,13 @@ Adds a correctness flag to the user's notes, and returns the actual song along w
 ```json
 {
   "corrected": [
-    { "relative_value": -3, "duration": 0.25, "correct" : false },
-    { "relative_value": -2, "duration": 0.5, "correct" : true },
-    ...,
-    { "relative_value": 0, "duration": 0.25, "correct" : true }
+    { "relative_value": -3, "duration": 0.25, "correct": false },
+    { "relative_value": -2, "duration": 0.5, "correct": true },
+    { "relative_value": 0, "duration": 0.25, "correct": true }
   ],
   "actual": [
     { "relative_value": -1, "duration": 0.25 },
     { "relative_value": -2, "duration": 0.5 },
-    ...,
     { "relative_value": 0, "duration": 0.25 }
   ]
 }
